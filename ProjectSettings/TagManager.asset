@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Options
   - options
+  - blade
   layers:
   - Default
   - TransparentFX

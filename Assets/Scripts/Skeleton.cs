@@ -11,6 +11,7 @@ public class Skeleton : MonoBehaviour {
     public float degree;
 
     public GameObject target;
+    public bool attacking;
     
     void Start() {
         animator = GetComponent<Animator>();
@@ -25,14 +26,12 @@ public class Skeleton : MonoBehaviour {
         if (Vector3.Distance(transform.position, target.transform.position) > 10) {
             animator.SetBool("run", false);
             chronometer += 1 * Time.deltaTime;
-            if (chronometer >= 4)
-            {
+            if (chronometer >= 4) {
                 rutine = Random.Range(0, 2);
                 chronometer = 0;
             }
 
-            switch (rutine)
-            {
+            switch (rutine) {
                 case 0:
                     animator.SetBool("walk", false);
                     break;
@@ -48,15 +47,27 @@ public class Skeleton : MonoBehaviour {
                     break;
             }
         } else {
-            var lookPosition = target.transform.position - transform.position;
-            lookPosition.y = 0;
-            var rotation = Quaternion.LookRotation(lookPosition);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, 3);
-            animator.SetBool("walk", false);
-            animator.SetBool("run", true);
-            transform.Translate(Vector3.forward * 2 * Time.deltaTime);
+            if (Vector3.Distance(transform.position, target.transform.position) > 1) {
+                var lookPosition = target.transform.position - transform.position;
+                lookPosition.y = 0;
+                var rotation = Quaternion.LookRotation(lookPosition);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, 3);
+                animator.SetBool("walk", false);
+                animator.SetBool("run", true);
+                transform.Translate(Vector3.forward * 2 * Time.deltaTime);
+
+                animator.SetBool("attack", false);
+            } else {
+                animator.SetBool("walk", false);
+                animator.SetBool("run", false);
+                animator.SetBool("attack", false);
+                attacking = true;
+            }
         }
     }
 
-
+    public void EndingAnimation() {
+        animator.SetBool("attack", false);
+        attacking = false;
+    }
 }
