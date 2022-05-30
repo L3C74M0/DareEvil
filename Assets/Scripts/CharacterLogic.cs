@@ -9,6 +9,7 @@ public class CharacterLogic : MonoBehaviour {
     public float x, y;
 
 
+
     void Start() {
         animator = GetComponent<Animator>();
     }
@@ -24,6 +25,8 @@ public class CharacterLogic : MonoBehaviour {
 
         animator.SetFloat("VelX", x);
         animator.SetFloat("VelY", y);
+
+ 
     }
 
     void OnTriggerEnter(Collider collider) {
