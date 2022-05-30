@@ -47,7 +47,7 @@ public class Skeleton : MonoBehaviour {
                     break;
             }
         } else {
-            if (Vector3.Distance(transform.position, target.transform.position) > 1  && !attacking) {
+            if (Vector3.Distance(transform.position, target.transform.position) >= 1  && !attacking) {
                 var lookPosition = target.transform.position - transform.position;
                 lookPosition.y = 0;
                 var rotation = Quaternion.LookRotation(lookPosition);
@@ -61,7 +61,7 @@ public class Skeleton : MonoBehaviour {
                 animator.SetBool("walk", false);
                 animator.SetBool("run", false);
                 animator.SetBool("attack", true);
-                attacking = true;
+                attacking = false;
             }
         }
     }
