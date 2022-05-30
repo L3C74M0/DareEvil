@@ -55,8 +55,7 @@ public class CharacterLogic : MonoBehaviour {
 
     private void NewGame() {
         var dataFound = LoadAndSaveData.LoadData<HighScores>(pathData, nameFile);
-        if (dataFound != null)
-        {
+        if (dataFound != null) {
             high = dataFound;
             highScores = new ArrayList();
             highScores.Add(high.top1);
@@ -257,52 +256,31 @@ public class CharacterLogic : MonoBehaviour {
         }
     }
 
-    protected void saveNicks()
-    {
-        if (score > (int)highScores[0])
-        {
+    protected void saveNicks() {
+        if (score > (int)highScores[0]) {
             names[0] = nickName;
-        }
-        else if (score > (int)highScores[1])
-        {
+        } else if (score > (int)highScores[1]) {
             names[1] = nickName;
-        }
-        else if (score > (int)highScores[2])
-        {
+        } else if (score > (int)highScores[2]) {
             names[2] = nickName;
-        }
-        else if (score > (int)highScores[3])
-        {
+        } else if (score > (int)highScores[3]) {
             names[3] = nickName;
-        }
-        else if (score > (int)highScores[4])
-        {
+        } else if (score > (int)highScores[4]) {
             names[4] = nickName;
-        }
-        else if (score > (int)highScores[5])
-        {
+        } else if (score > (int)highScores[5]) {
             names[5] = nickName;
-        }
-        else if (score > (int)highScores[6])
-        {
+        } else if (score > (int)highScores[6])  {
             names[6] = nickName;
-        }
-        else if (score > (int)highScores[7])
-        {
+        } else if (score > (int)highScores[7]) {
             names[7] = nickName;
-        }
-        else if (score > (int)highScores[8])
-        {
+        } else if (score > (int)highScores[8]) {
             names[8] = nickName;
-        }
-        else if (score > (int)highScores[9])
-        {
+        } else if (score > (int)highScores[9]) {
             names[9] = nickName;
         }
     }
 
-    protected void resetHighScores()
-    {
+    protected void resetHighScores() {
         high.top1 = 0;
         high.top2 = 0;
         high.top3 = 0;
@@ -331,16 +309,13 @@ public class CharacterLogic : MonoBehaviour {
     }
 
     public void accept() {
-        if (inputName.text.Length > 3)
-        {
+        if (inputName.text.Length > 3) {
             nickName = inputName.text;
             inputDisable.SetActive(false);
             buttonOK.SetActive(false);
             nullField = false;
             //SceneManager.LoadScene("MainMenu");
-        }
-        else
-        {
+        } else {
             Debug.LogError("Nombre muy corto");
         }
     }
