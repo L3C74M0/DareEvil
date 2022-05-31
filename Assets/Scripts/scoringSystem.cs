@@ -5,16 +5,14 @@ using UnityEngine.UI;
 
 public class scoringSystem : MonoBehaviour
 {
+
     public GameObject scoreText;
     public static int theScore;
   
-
-
     void Update()
     {
-       
-
         scoreText.GetComponent<Text>().text = "SCORE: " + theScore;
         
     }
+
 }

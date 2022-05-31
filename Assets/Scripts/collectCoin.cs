@@ -11,6 +11,7 @@ public class collectCoin : MonoBehaviour
     {
         collectSound.Play();
         scoringSystem.theScore += 50;
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
+    
 }
