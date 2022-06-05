@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Threading.Tasks;
 
 public class CharacterLogic : MonoBehaviour {
     
@@ -9,8 +10,11 @@ public class CharacterLogic : MonoBehaviour {
     private Animator animator;
     public float x, y;
 
+    public GameObject gameOver;
+
     void Start() {
         animator = GetComponent<Animator>();
+        ScoringSystem.theScore = 0;
     }
 
     void Update() {
@@ -26,8 +30,16 @@ public class CharacterLogic : MonoBehaviour {
 
     void OnTriggerEnter(Collider collider) {
         if (collider.CompareTag("blade")) {
-            print("Damage");
-            Debug.Log("damage");
+            //print("Damage");
+            gameOver.SetActive(true);
+            Other();
         }
+    }
+
+    protected async void Other()
+    {
+        await Task.Delay(3000);
+        SceneSwitcher.OpenScene(1);
+        await Task.Delay(100);
     }
 }

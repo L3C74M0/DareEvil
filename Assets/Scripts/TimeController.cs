@@ -25,6 +25,7 @@ public class TimeController : MonoBehaviour {
             if (restante < 1) {
                 gameOver.SetActive(true);
                 Other();
+                ScoringSystem.theScore = 0;
                 enMarcha = false;
             }
             int tempMin = Mathf.FloorToInt(restante / 60);

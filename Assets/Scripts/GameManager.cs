@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
-
-    public bool isAlive = true;
-
-    public Text currentScore;
+    
+    public Text time;
     public Text highScoreText;
     public string nickName = "";
 
@@ -21,24 +20,18 @@ public class GameManager : MonoBehaviour {
 
     public InputField inputText;
     public Text inputName;
-    public GameObject buttonOK;
-    public GameObject inputDisable;
 
     protected bool nullField = true;
     protected bool gameOver = false;
     protected int place = 0;
 
     void Start() {
-        
+       
     }
 
     void Update() {
-        if (isAlive) {
-            if (!TimeController.enMarcha) {
-                Debug.Log("TimeOut");
-            }
-
-            saveScores();
+        if (ScoringSystem.theScore == 50) {
+            Debug.Log("Recolectó todo");
         }
     }
 
@@ -112,10 +105,8 @@ public class GameManager : MonoBehaviour {
         LoadAndSaveData.SaveData(high, pathData, nameFile);
     }
 
-    protected void saveScores()
-    {
-        if (score > (int)highScores[0])
-        {
+    protected void saveScores() {
+        if (score > (int)highScores[0]) {
             highScores[9] = highScores[8];
             names[9] = names[8];
             highScores[8] = highScores[7];
@@ -136,7 +127,6 @@ public class GameManager : MonoBehaviour {
             names[1] = names[0];
             highScores[0] = score;
             place = 0;
-            //visibleButtons();
         }
         else if (score > (int)highScores[1])
         {
@@ -158,7 +148,6 @@ public class GameManager : MonoBehaviour {
             names[2] = names[1];
             highScores[1] = score;
             place = 1;
-            //visibleButtons();
         }
         else if (score > (int)highScores[2])
         {
@@ -178,7 +167,6 @@ public class GameManager : MonoBehaviour {
             names[3] = names[2];
             highScores[2] = score;
             place = 2;
-            //visibleButtons();
         }
         else if (score > (int)highScores[3])
         {
@@ -196,7 +184,6 @@ public class GameManager : MonoBehaviour {
             names[4] = names[3];
             highScores[3] = score;
             place = 3;
-            //visibleButtons();
         }
         else if (score > (int)highScores[4])
         {
@@ -212,7 +199,6 @@ public class GameManager : MonoBehaviour {
             names[5] = names[4];
             highScores[4] = score;
             place = 4;
-            //visibleButtons();
         }
         else if (score > (int)highScores[5])
         {
@@ -226,7 +212,6 @@ public class GameManager : MonoBehaviour {
             names[6] = names[5];
             highScores[5] = score;
             place = 5;
-            //visibleButtons();
         }
         else if (score > (int)highScores[6])
         {
@@ -238,7 +223,6 @@ public class GameManager : MonoBehaviour {
             names[7] = names[6];
             highScores[6] = score;
             place = 6;
-            //visibleButtons();
         }
         else if (score > (int)highScores[7])
         {
@@ -248,7 +232,6 @@ public class GameManager : MonoBehaviour {
             names[8] = names[7];
             highScores[7] = score;
             place = 7;
-            //visibleButtons();
         }
         else if (score > (int)highScores[8])
         {
@@ -256,17 +239,14 @@ public class GameManager : MonoBehaviour {
             names[9] = names[8];
             highScores[8] = score;
             place = 8;
-            //visibleButtons();
         }
         else if (score > (int)highScores[9])
         {
             highScores[9] = score;
             place = 9;
-            //visibleButtons();
         }
-        else
-        {
-            //SceneManager.LoadScene("MainMenu");
+        else {
+            SceneSwitcher.OpenScene(1);
         }
     }
 
@@ -344,18 +324,13 @@ public class GameManager : MonoBehaviour {
         highScoreText.text = "HIGH SCORE\n" + high.top1;
     }
 
-    public void accept()
-    {
-        if (inputName.text.Length > 3)
-        {
+    public void accept() {
+        if (inputName.text.Length > 3)  {
             nickName = inputName.text;
-            inputDisable.SetActive(false);
-            buttonOK.SetActive(false);
             nullField = false;
-            //SceneManager.LoadScene("MainMenu");
+            SceneSwitcher.OpenScene(1);
         }
-        else
-        {
+        else {
             Debug.LogError("Nombre muy corto");
         }
     }
