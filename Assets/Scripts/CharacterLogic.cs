@@ -30,14 +30,12 @@ public class CharacterLogic : MonoBehaviour {
 
     void OnTriggerEnter(Collider collider) {
         if (collider.CompareTag("blade")) {
-            //print("Damage");
             gameOver.SetActive(true);
             Other();
         }
     }
 
-    protected async void Other()
-    {
+    protected async void Other() {
         await Task.Delay(3000);
         SceneSwitcher.OpenScene(1);
         await Task.Delay(100);

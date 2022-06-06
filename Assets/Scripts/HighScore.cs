@@ -2,16 +2,16 @@ using System.Collections;
 
 [System.Serializable]
 public class HighScores {
-    public int top1;
-    public int top2;
-    public int top3;
-    public int top4;
-    public int top5;
-    public int top6;
-    public int top7;
-    public int top8;
-    public int top9;
-    public int top10;
+    public string top1;
+    public string top2;
+    public string top3;
+    public string top4;
+    public string top5;
+    public string top6;
+    public string top7;
+    public string top8;
+    public string top9;
+    public string top10;
 
     public string str1;
     public string str2;

@@ -5972,16 +5972,16 @@ MonoBehaviour:
   scores: {fileID: 290681922}
   nicks: {fileID: 1737089639}
   high:
-    top1: 0
-    top2: 0
-    top3: 0
-    top4: 0
-    top5: 0
-    top6: 0
-    top7: 0
-    top8: 0
-    top9: 0
-    top10: 0
+    top1: 
+    top2: 
+    top3: 
+    top4: 
+    top5: 
+    top6: 
+    top7: 
+    top8: 
+    top9: 
+    top10: 
     str1: 
     str2: 
     str3: 
@@ -6617,6 +6617,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1739114769}
   - component: {fileID: 1739114768}
+  - component: {fileID: 1739114770}
   m_Layer: 0
   m_Name: GameManagerMenu
   m_TagString: Untagged
@@ -6650,6 +6651,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1739114770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1739114767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f46c5214ce024a43abe8b9a20f6b87e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1783054496
 GameObject:
   m_ObjectHideFlags: 0
