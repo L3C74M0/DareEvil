@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour {
     }
 
     void Update() {
-        if (ScoringSystem.theScore == 50) {
+        if (ScoringSystem.theScore == 800) {
             PlayerPrefs.SetString("currentTime", time.text);
             saved = true;
             // I compare my time with the Tenth
